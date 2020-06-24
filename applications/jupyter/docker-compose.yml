@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+  jupyter:
+    image: jupyter/datascience-notebook
+    ports:
+      - 8888:8888
+    volumes:
+      - ./work:/home/jovyan/work
+    networks: 
+      # - elasticsearch
+      # - pulsar
+      # - kafka
+      - druid
+    
+networks:
+  # elasticsearch:
+  #   external:
+  #     name: elasticsearch_elastic
+  # pulsar:
+  #   external:
+  #     name: pulsar_default
+  # kafka:
+  #   external:
+  #     name: kafka_default
+  druid:
+    external:
+      name: druid_default

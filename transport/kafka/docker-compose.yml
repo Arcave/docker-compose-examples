@@ -1,0 +1,19 @@
+version: '2'
+services:
+  zookeeper:
+    build: .
+    ports:
+      - "2181:2181"
+    command: >
+      /bin/bash -c
+      "bin/zookeeper-server-start.sh config/zookeeper.properties"
+  kafka:
+    build: .
+    ports:
+      - "9092"
+    command: >
+      /bin/bash -c
+      "bin/kafka-server-start.sh config/server.properties"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./server.properties:/kafka/config/server.properties
