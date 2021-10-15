@@ -17,3 +17,5 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./server.properties:/kafka/config/server.properties
+    depends_on:
+      - zookeeper

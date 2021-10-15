@@ -10,8 +10,8 @@ services:
     networks: 
       # - elasticsearch
       # - pulsar
-      # - kafka
-      - druid
+      - kafka
+      # - druid
     
 networks:
   # elasticsearch:
@@ -20,9 +20,9 @@ networks:
   # pulsar:
   #   external:
   #     name: pulsar_default
-  # kafka:
-  #   external:
-  #     name: kafka_default
-  druid:
+  kafka:
     external:
-      name: druid_default
+      name: kafka_default
+  # druid:
+  #   external:
+  #     name: druid_default
